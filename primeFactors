@@ -1,0 +1,18 @@
+Private Sub btnFind_Click(sender As Object, e As EventArgs) Handles btnFind.Click
+        Dim n As Integer
+        Dim f As Integer = 2
+        Dim m As Integer
+        n = txtNumber.Text
+        lstBoxPrime.Items.Add("The prime factors of " & n & " are:")
+        Do While n <> 1
+            m = n Mod f
+            If m = 0 Then
+                lstBoxPrime.Items.Add(f)
+                n = n / f
+            Else
+                f += 1
+
+            End If
+        Loop
+    End Sub
+End Class
