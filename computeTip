@@ -1,0 +1,18 @@
+    Sub tip(person As String, bill As Double, percent As Double)
+        Dim percentage As Double
+        Dim total As Double
+        percentage = percent / 100
+        total = bill * percentage
+        lstBoxTip.Items.Add("Tip the " & person & " " & FormatCurrency(total))
+    End Sub
+    Private Sub btnCompute_Click(sender As Object, e As EventArgs) Handles btnCompute.Click
+        Dim job As String
+        Dim amount As Double
+        Dim percent As Double
+        job = txtOccupation.Text
+        amount = txtAmount.Text
+        percent = CDbl(txtTip.Text)
+        tip(job, amount, percent)
+
+
+    End Sub
