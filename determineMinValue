@@ -1,0 +1,24 @@
+'Input three different numbers, button will calculate the minimum value
+Public Class Form1
+    Function DetermineMin(Val1 As Integer, Val2 As Integer, Val3 As Integer) As Integer
+        Dim Values As Integer() = {Val1, Val2, Val3}
+        Dim Lowest As Integer = Integer.MaxValue
+        'MaxValue = largest possible value that an integer can be (2147483647)
+
+        'At this point, Num = Val1, Val2, Val3
+        For Each Num As Integer In Values
+            Lowest = Math.Min(Lowest, Num)
+            MsgBox(Lowest)
+        Next
+
+        Return Lowest
+    End Function
+
+    Private Sub btnDetermine_Click(sender As Object, e As EventArgs) Handles btnDetermine.Click
+        Dim Val1 As Integer = txtBoxVal1.Text
+        Dim Val2 As Integer = txtBoxVal2.Text
+        Dim Val3 As Integer = txtBoxVal3.Text
+
+        txtBoxMin.Text = DetermineMin(Val1, Val2, Val3)
+    End Sub
+End Class
