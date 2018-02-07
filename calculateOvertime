@@ -1,0 +1,28 @@
+    Sub InputData(ByRef hours As Double, ByRef payperhour As Double)
+        hours = CDbl(txtWorked.Text)
+        payperhour = CDbl(txtPay.Text)
+
+    End Sub
+    Sub CalculateValues(ByVal hours As Double, ByVal payperhour As Double, ByRef overtimeHours As Double, ByRef pay As Double)
+        If hours <= 40 Then
+            overtimeHours = 0
+            pay = (hours * payperhour)
+        Else
+            overtimeHours = (hours - 40)
+            pay = (40 * payperhour) + ((hours - 40) * (payperhour * 1.5))
+
+        End If
+    End Sub
+    Sub DisplayData(ByVal overtimehours As Double, ByVal pay As Double)
+        txtOvertime.Text = overtimehours
+        txtWeek.Text = FormatCurrency(pay)
+
+    End Sub
+    Private Sub btnCalculate2_Click(sender As Object, e As EventArgs) Handles btnCalculate2.Click
+        Dim hours, payperhour, overtimehours, pay As Double
+        InputData(hours, payperhour)
+        CalculateValues(hours, payperhour, overtimehours, pay)
+        DisplayData(overtimehours, pay)
+    End Sub
+
+	
