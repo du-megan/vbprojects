@@ -1,0 +1,27 @@
+Sub InputData(ByRef Old As Double, ByRef charges As Double, ByRef credits As Double)
+        Old = CDbl(txtOld.Text)
+        charges = CDbl(txtCharges.Text)
+        credits = CDbl(txtCredits.Text)
+    End Sub
+    Sub CalculateNewValues(ByVal old As Double, ByVal charges As Double, ByVal credits As Double, ByRef newBalance As Double, ByRef minPayment As Double)
+        newBalance = (old - credits + charges) * 1.015
+
+        If newBalance <= 20 Then
+            minPayment = newBalance
+        Else
+            minPayment = 20 + (newBalance * 0.1)
+        End If
+
+    End Sub
+    Sub DisplayData(ByVal newbalance As Double, ByVal minPayment As Double)
+        txtNew.Text = FormatCurrency(newbalance)
+        txtMin.Text = FormatCurrency(minPayment)
+
+    End Sub
+
+    Private Sub BtnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
+        Dim oldBalance, charges, credits, newBalance, minPayment As Double
+        InputData(oldBalance, charges, credits)
+        CalculateNewValues(oldBalance, charges, credits, newBalance, minPayment)
+        DisplayData(newBalance, minPayment)
+    End Sub
