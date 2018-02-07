@@ -1,0 +1,13 @@
+Public Class Form1
+    Dim sw As IO.StreamWriter = IO.File.AppendText("Cowboy.txt")
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        Dim AddItem As String = txtItem.Text
+        Dim Price As Double = txtPrice.Text
+
+        sw.WriteLine(AddItem & "," & FormatNumber(Price))
+    End Sub
+
+    Private Sub btnDone_Click(sender As Object, e As EventArgs) Handles btnDone.Click
+        sw.Close()
+    End Sub
+End Class
