@@ -1,0 +1,25 @@
+'Create a form that prompts for Presidential Eligibility
+'Include a selection if they are a natural born citizen and has been a resident for 14 years
+
+Public Class Form1
+    Private Sub btnDetermine_Click(sender As Object, e As EventArgs) Handles btnDetermine.Click
+
+        Dim DoB As Date = CDate(mtxtBoxDoB.Text)
+        Dim Inauguration As Date = #1/20/2017#
+        Dim EligibleDate As Date = DoB.AddYears(35)
+        Dim Years As Integer
+        Years = DateDiff(DateInterval.Year, EligibleDate, Inauguration)
+
+        lblEligible.Text = ""
+        If Years >= 0 Then
+            If radbtnCitizenYes.Checked = True And radBtnResidentYes.Checked = True Then
+                lblEligible.Text = "You are eligible to run for president in 2016."
+            Else
+                lblEligible.Text = "You are NOT eligible to run for president in 2016."
+            End If
+        Else
+            lblEligible.Text = "You are NOT eligible to run for president in 2016."
+        End If
+    End Sub
+End Class
+ 
