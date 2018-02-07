@@ -1,0 +1,13 @@
+Public Class Form1
+    Function Avg(ByVal Numbers() As Integer)
+        Dim Sum As Integer
+        For Each Value As Integer In Numbers
+            Sum += Value
+        Next
+        Return Sum / (Numbers.Length)
+    End Function
+    Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
+        Dim Numbers() As Integer = {12, 99, 11, 35, 65}
+        txtAverage.Text = Avg(Numbers)
+    End Sub
+End Class
