@@ -1,0 +1,202 @@
+'Build a Calculator
+Public Class Form1
+    Dim Val1 As Double
+    Dim Val2 As Double
+    Dim Op As Integer
+    Dim Memory As Double
+    '---Operators
+    Private Sub btnPlus_Click(sender As Object, e As EventArgs) Handles btnPlus.Click
+        lblOperator.Text = "+"
+        Op = 1
+    End Sub
+    Private Sub btnMinus_Click(sender As Object, e As EventArgs) Handles btnMinus.Click
+        lblOperator.Text = "-"
+        Op = 2
+    End Sub
+
+    Private Sub btnMultiply_Click(sender As Object, e As EventArgs) Handles btnMultiply.Click
+        lblOperator.Text = "*"
+        Op = 3
+    End Sub
+
+    Private Sub btnDivide_Click(sender As Object, e As EventArgs) Handles btnDivide.Click
+        lblOperator.Text = "/"
+        Op = 4
+    End Sub
+
+    Private Sub btnSqrt_Click(sender As Object, e As EventArgs) Handles btnSqrt.Click
+        Dim x As Double
+        lblOperator.Text = "~"
+        x = CInt(lblVal1.Text)
+        lblAnswer.Text = Math.Sqrt(lblVal1.Text)
+    End Sub
+
+    Private Sub btnInverse_Click(sender As Object, e As EventArgs) Handles btnInverse.Click
+        lblOperator.Text = "I"
+        lblVal1.Text = (1 / lblVal1.Text)
+    End Sub
+
+    Private Sub btnPercent_Click(sender As Object, e As EventArgs) Handles btnPercent.Click
+        lblOperator.Text = "%"
+        lblAnswer.Text = FormatPercent(lblAnswer.Text)
+    End Sub
+
+    Private Sub btnExponent_Click(sender As Object, e As EventArgs) Handles btnExponent.Click
+        Dim x As Double
+        lblOperator.Text = "^"
+        x = CInt(lblVal1.Text)
+        lblAnswer.Text = Math.Pow(x, 10)
+    End Sub
+    '---Memory Store, Memory Recall, Backspace
+    Private Sub btnMST_Click(sender As Object, e As EventArgs) Handles btnMST.Click
+        Memory = lblAnswer.Text
+    End Sub
+
+    Private Sub btnM_Click(sender As Object, e As EventArgs) Handles btnM.Click
+        lblAnswer.Text = Memory
+    End Sub
+
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        Dim A, B As String
+        A = lblVal1.Text.Length
+        B = lblVal2.Text.Length
+        If lblOperator.Text = "" Then
+            lblVal1.Text = lblVal1.Text.Remove(A - 1, 1)
+        Else
+            lblVal2.Text = lblVal2.Text.Remove(B - 1, 1)
+        End If
+    End Sub
+    '----Keypad
+    Private Sub btn1_Click(sender As Object, e As EventArgs) Handles btn1.Click
+        If lblOperator.Text = "" Then
+            lblVal1.Text += "1"
+        Else
+            lblVal2.Text += "1"
+        End If
+
+    End Sub
+
+    Private Sub btn2_Click(sender As Object, e As EventArgs) Handles btn2.Click
+        If lblOperator.Text = "" Then
+            lblVal1.Text += "2"
+        Else
+            lblVal2.Text += "2"
+        End If
+    End Sub
+
+    Private Sub btn3_Click(sender As Object, e As EventArgs) Handles btn3.Click
+        If lblOperator.Text = "" Then
+            lblVal1.Text += "3"
+        Else
+            lblVal2.Text += "3"
+        End If
+    End Sub
+
+    Private Sub btn4_Click(sender As Object, e As EventArgs) Handles btn4.Click
+        If lblOperator.Text = "" Then
+            lblVal1.Text += "4"
+        Else
+            lblVal2.Text += "4"
+        End If
+    End Sub
+
+    Private Sub btn5_Click(sender As Object, e As EventArgs) Handles btn5.Click
+        If lblOperator.Text = "" Then
+            lblVal1.Text += "5"
+        Else
+            lblVal2.Text += "5"
+        End If
+    End Sub
+
+    Private Sub btn6_Click(sender As Object, e As EventArgs) Handles btn6.Click
+        If lblOperator.Text = "" Then
+            lblVal1.Text += "6"
+        Else
+            lblVal2.Text += "6"
+        End If
+
+    End Sub
+
+    Private Sub btn7_Click(sender As Object, e As EventArgs) Handles btn7.Click
+        If lblOperator.Text = "" Then
+            lblVal1.Text += "7"
+        Else
+            lblVal2.Text += "7"
+        End If
+    End Sub
+
+    Private Sub btn8_Click(sender As Object, e As EventArgs) Handles btn8.Click
+        If lblOperator.Text = "" Then
+            lblVal1.Text += "8"
+        Else
+            lblVal2.Text += "8"
+        End If
+    End Sub
+
+    Private Sub btn9_Click(sender As Object, e As EventArgs) Handles btn9.Click
+        If lblOperator.Text = "" Then
+            lblVal1.Text += "9"
+        Else
+            lblVal2.Text += "9"
+        End If
+    End Sub
+
+    Private Sub btn0_Click(sender As Object, e As EventArgs) Handles btn0.Click
+        If lblOperator.Text = "" Then
+            lblVal1.Text += "0"
+        Else
+            lblVal2.Text += "0"
+        End If
+    End Sub
+
+    Private Sub btnDecimal_Click(sender As Object, e As EventArgs) Handles btnDecimal.Click
+        If lblOperator.Text = "" Then
+            lblVal1.Text += "."
+        Else
+            lblVal2.Text += "."
+        End If
+    End Sub
+    '---2-Place, 4-Place, Clear, and Quit
+    Private Sub btn2Place_Click(sender As Object, e As EventArgs) Handles btn2Place.Click
+        lblAnswer.Text = Math.Round(CDbl(lblAnswer.Text), 2)
+    End Sub
+
+    Private Sub btn4Place_Click(sender As Object, e As EventArgs) Handles btn4Place.Click
+        lblAnswer.Text = Math.Round(CDbl(lblAnswer.Text), 4)
+    End Sub
+
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        lblVal1.Text = ""
+        lblVal2.Text = ""
+        lblOperator.Text = ""
+        lblAnswer.Text = ""
+    End Sub
+
+    Private Sub btnQuit_Click(sender As Object, e As EventArgs) Handles btnQuit.Click
+        End
+    End Sub
+
+    Function ComputeValue(Val1 As Double, Val2 As Double) As Double
+        'Function to compute the answer
+        Select Case Op
+            Case 1
+                Return Val1 + Val2
+            Case 2
+                Return Val1 - Val2
+            Case 3
+                Return Val1 * Val2
+            Case 4
+                Return Val1 / Val2
+            Case Else
+                Return "What"
+        End Select
+    End Function
+
+    '----Computation
+    Private Sub btnEquals_Click(sender As Object, e As EventArgs) Handles btnEquals.Click
+        Val1 = lblVal1.Text
+        Val2 = lblVal2.Text
+
+        lblAnswer.Text = ComputeValue(Val1, Val2)
+    End Sub
+End Class
