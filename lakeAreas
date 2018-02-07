@@ -1,0 +1,40 @@
+'Buttons display results of lake areas
+
+Public Class Form1
+    Dim lakeAreas() As Integer = {23000, 8000, 22000, 10000, 32000}
+    Private Sub btnMax_Click(sender As Object, e As EventArgs) Handles btnMax.Click
+        txtResult.Text = lakeAreas.Max
+    End Sub
+
+    Private Sub btnMin_Click(sender As Object, e As EventArgs) Handles btnMin.Click
+        txtResult.Text = lakeAreas.Min
+    End Sub
+
+    Private Sub btnFirst_Click(sender As Object, e As EventArgs) Handles btnFirst.Click
+        txtResult.Text = lakeAreas.First
+    End Sub
+
+    Private Sub btnLast_Click(sender As Object, e As EventArgs) Handles btnLast.Click
+        txtResult.Text = lakeAreas.Last
+    End Sub
+
+    Private Sub btnCount_Click(sender As Object, e As EventArgs) Handles btnCount.Click
+        txtResult.Text = lakeAreas.Count
+    End Sub
+
+    Private Sub btnSum_Click(sender As Object, e As EventArgs) Handles btnSum.Click
+        txtResult.Text = lakeAreas.Sum
+    End Sub
+
+    Private Sub btnAverage_Click(sender As Object, e As EventArgs) Handles btnAverage.Click
+        txtResult.Text = lakeAreas.Average
+    End Sub
+
+    Private Sub btnLake_Click(sender As Object, e As EventArgs) Handles btnLake.Click
+ txtResult.Text = lakeAreas(2)
+    End Sub
+
+    Private Sub btn8000_Click(sender As Object, e As EventArgs) Handles btn8000.Click
+        txtResult.Text = Array.IndexOf(lakeAreas, 8000)
+    End Sub
+End Class 
