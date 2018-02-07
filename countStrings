@@ -1,0 +1,6 @@
+Public Class Form1
+    Private Sub btnShow_Click(sender As Object, e As EventArgs) Handles btnShow.Click
+        Dim Names() As String = IO.File.ReadAllLines("Names.txt")
+        txtCount.Text = Names.Count
+    End Sub
+End Class
