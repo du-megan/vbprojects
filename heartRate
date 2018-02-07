@@ -1,0 +1,15 @@
+'Determine Training Heart Rate
+Public Class Form1
+    Function ComputeTHR(Age As Double, RHR As Double) As Double
+        'Determine training heart rate
+        Return (((220 - Age) - RHR) * 0.6) + RHR
+    End Function
+
+    Private Sub btnDetermine_Click(sender As Object, e As EventArgs) Handles btnDetermine.Click
+        Dim Age, RHR, Result As Double
+        Age = txtBoxAge.Text
+        RHR = txtBoxResting.Text
+        Result = ComputeTHR(Age, RHR)
+        txtBoxTHR.Text = Result
+    End Sub
+End Class
