@@ -1,0 +1,17 @@
+'Display Monthly Balances
+Public Class Form1
+    Dim NewBalance As Double
+    Function InvestmentGrowth(Deposit As Double, NewBalance As Double) As Double
+        Return Deposit + (1.005 * (NewBalance))
+    End Function
+
+    Private Sub btnDisplay_Click(sender As Object, e As EventArgs) Handles btnDisplay.Click
+        Dim Deposit, NewBalance As Double
+        Deposit = txtBoxDeposit.Text
+
+        For M As Integer = 1 To 4
+            NewBalance = InvestmentGrowth(Deposit, NewBalance)
+            lstboxResult.Items.Add("Month " & M & ": " & FormatCurrency(NewBalance))
+        Next
+    End Sub
+End Class
