@@ -1,0 +1,53 @@
+Public Class Form1
+    Private Sub radBtnForeWhite_CheckedChanged(sender As Object, e As EventArgs) Handles radBtnForeWhite.CheckedChanged, radBtnBackWhite.CheckedChanged, radBtnForeYellow.CheckedChanged, radBtnBackYellow.CheckedChanged, radBtnForeRed.CheckedChanged, radBtnBackRed.CheckedChanged, radBtnForeBlue.CheckedChanged, radBtnBackBlue.CheckedChanged
+        If radBtnForeWhite.Checked And radBtnBackWhite.Checked Or
+            radBtnForeYellow.Checked And radBtnBackYellow.Checked Or
+            radBtnForeRed.Checked And radBtnBackRed.Checked Or
+            radBtnForeBlue.Checked And radBtnBackBlue.Checked Then
+            MsgBox("Foreground and background must be different.")
+        End If
+    End Sub
+
+    Private Sub btnApply_Click(sender As Object, e As EventArgs) Handles btnApply.Click
+        If radBtnForeWhite.Checked And radBtnBackYellow.Checked Then 'White 
+            lblVisualBasic.ForeColor = Color.White
+            lblVisualBasic.BackColor = Color.Yellow
+        ElseIf radBtnForeWhite.Checked And radBtnBackRed.Checked Then
+            lblVisualBasic.ForeColor = Color.White
+            lblVisualBasic.BackColor = Color.Red
+        ElseIf radBtnForeWhite.Checked And radBtnBackBlue.Checked Then
+            lblVisualBasic.ForeColor = Color.White
+            lblVisualBasic.BackColor = Color.Blue
+        ElseIf radBtnForeYellow.Checked And radBtnBackWhite.Checked Then 'Yellow
+            lblVisualBasic.ForeColor = Color.Yellow
+            lblVisualBasic.BackColor = Color.White
+        ElseIf radBtnForeYellow.Checked And radBtnBackRed.Checked Then
+            lblVisualBasic.ForeColor = Color.Yellow
+            lblVisualBasic.BackColor = Color.Red
+        ElseIf radBtnForeYellow.Checked And radBtnBackBlue.Checked Then
+            lblVisualBasic.ForeColor = Color.Yellow
+            lblVisualBasic.BackColor = Color.Blue
+        ElseIf radBtnForeRed.Checked And radBtnBackWhite.Checked Then 'Red
+            lblVisualBasic.ForeColor = Color.Red
+            lblVisualBasic.BackColor = Color.White
+        ElseIf radBtnForeRed.Checked And radBtnBackYellow.Checked Then
+            lblVisualBasic.ForeColor = Color.Red
+            lblVisualBasic.BackColor = Color.Yellow
+        ElseIf radBtnForeRed.Checked And radBtnBackBlue.Checked Then
+            lblVisualBasic.ForeColor = Color.Red
+            lblVisualBasic.BackColor = Color.Blue
+        ElseIf radBtnForeBlue.Checked And radBtnBackWhite.Checked Then 'Blue
+            lblVisualBasic.ForeColor = Color.Blue
+            lblVisualBasic.BackColor = Color.White
+        ElseIf radBtnForeBlue.Checked And radBtnBackYellow.Checked Then
+            lblVisualBasic.ForeColor = Color.Blue
+            lblVisualBasic.BackColor = Color.Yellow
+        ElseIf radBtnForeBlue.Checked And radBtnBackRed.Checked Then
+            lblVisualBasic.ForeColor = Color.Blue
+            lblVisualBasic.BackColor = Color.Red
+        Else
+            MsgBox("Please select foreground and background color")
+        End If
+
+    End Sub
+End Class
