@@ -1,0 +1,24 @@
+ Sub IsZip(Zip As String)
+        If Zip Like "#####" Then
+
+        Else
+            MsgBox("Input correct zipcode")
+        End If
+    End Sub
+    Sub IsMedicalID(medID As String)
+        If medID Like "#######" Then
+        Else
+            MsgBox("error incorrect medID")
+        End If
+    End Sub
+
+    Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
+        Dim zipcode As String
+        zipcode = txtZip.Text
+
+        If txtName.Text = "" And txtCity.Text = "" And txtAddress.Text = "" And txtState.Text = "" And txtZip.Text = "" And txtMed.Text = "" Then
+            MsgBox("Input data")
+           Exit Sub
+        End If
+        IsZip(zipcode)
+    End Sub
