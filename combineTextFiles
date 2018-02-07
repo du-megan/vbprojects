@@ -1,0 +1,15 @@
+'Combine strings from .txt files
+'Presidents and Vice Presidents
+
+Public Class Form1
+    Dim President() As String = IO.File.ReadAllLines("USPres.txt")
+    Dim Vice() As String = IO.File.ReadAllLines("VPres.txt")
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        lstBoxPresidents.DataSource = President
+        lstBoxVice.DataSource = Vice
+    End Sub
+
+    Private Sub btnCombine_Click(sender As Object, e As EventArgs) Handles btnCombine.Click
+        IO.File.WriteAllLines("NewFile.txt", President.Union(Vice))
+    End Sub
+End Class
