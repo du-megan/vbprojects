@@ -1,0 +1,23 @@
+Public Class Form1
+    Private Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
+        Dim sr As IO.StreamReader = IO.File.OpenText("Cowboy.txt")
+        Dim sw As IO.StreamWriter = IO.File.CreateText("Cowboy2.txt")
+        Dim Line As String
+        Dim Item As String
+        Dim Price As Double
+
+        Do Until sr.EndOfStream
+            Line = sr.ReadLine
+            Item = Line.Split(","c)(0)
+            Price = Line.Split(","c)(1)
+
+            sw.WriteLine(Item & "," & FormatNumber(Price, 2))
+            If Item = "Saddle" Then
+                Price -= 0.2 * Price
+                sw.WriteLine(Item & "," & FormatNumber(Price, 2))
+            End If
+        Loop
+        sr.Close()
+        sw.Close()
+    End Sub
+End Class
