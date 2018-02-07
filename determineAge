@@ -1,0 +1,14 @@
+    Sub DetermineAge(dob As Date, today As Date)
+        Dim age, ageInDays As Integer
+        age = DateDiff(DateInterval.Year, dob, today)
+        ageInDays = DateDiff(DateInterval.Day, dob, today)
+        lstAge.Items.Add("You are " & age & " years old")
+        lstAge.Items.Add("You are " & ageInDays & " days old")
+    End Sub
+
+    Private Sub btnDetermine_Click(sender As Object, e As EventArgs) Handles btnDetermine.Click
+        Dim birth, now As Date
+        birth = txtBirth.Text
+        now = txtToday.Text
+        DetermineAge(birth, now)
+    End Sub
